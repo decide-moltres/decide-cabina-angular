@@ -11,6 +11,6 @@
     </ul>
   </div>
   <div class="navbar-nav navbar-right" id="logout-link" *ngIf="isLogged">
-    <a class=" nav-item nav-link mr-3" href="#">Logout</a>
+    <a class=" nav-item nav-link mr-3" href="#" (click)="onLogout($event)">Logout</a>
   </div>
 </nav>
