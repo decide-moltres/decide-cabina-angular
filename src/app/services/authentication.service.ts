@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     if (username !== '' && password !== '') {
-      return this.http.post('http://localhost:8000/authentication/login/', {
+      return this.http.post(`${environment.api_url}authentication/login/`, {
         username,
         password,
       });
@@ -21,12 +22,12 @@ export class AuthenticationService {
   }
 
   logout() {
-    return this.http.post('http://localhost:8000/authentication/logout/', { token: this.getToken() });
+    return this.http.post(`${environment.api_url}authentication/logout/`, { token: this.getToken() });
   }
 
   getUser(token: string) {
     const data = { token };
-    return this.http.post('http://localhost:8000/authentication/getuser/', data);
+    return this.http.post(`${environment.api_url}authentication/getuser/`, data);
   }
 
   getToken() {
