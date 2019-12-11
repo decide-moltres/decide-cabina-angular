@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authService.login(username, password).subscribe(
       res => {
+        this.loading = false;
         console.log(res);
         if (res.hasOwnProperty('token')) {
           this.authService.setToken((res as any).token);
@@ -39,7 +40,6 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
-        // console.error(error);
         this.authService.changeLoggedStatus(false);
         this.loading = false;
       });
