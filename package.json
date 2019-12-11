@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --aot --prod",
-    "codacy": "cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage -p ."
+    "codacy": "cat ./coverage/decide-cabina-angular/lcov.info | ./node_modules/.bin/codacy-coverage -p ."
   },
   "private": true,
   "dependencies": {
