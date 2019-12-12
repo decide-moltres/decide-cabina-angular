@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { VotingsComponent } from './votings/votings.component';
 import { VotingComponent } from './voting/voting.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VotingItemComponent } from './votings/voting-item/voting-item.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     VotingsComponent,
-    VotingComponent
+    VotingComponent,
+    VotingItemComponent
   ],
   imports: [
     BrowserModule,
