@@ -28,4 +28,16 @@ export class VotingService {
     });
     return res;
   }
+  parseVoting(voting: any) {
+    const options: Option[] = [];
+    voting.question.options.forEach(o => {
+      options.push(new Option(o.number, o.option));
+    });
+    const question = new Question(voting.question.desc, options);
+    return new Voting(voting.id, voting.name, voting.desc, question, voting.start_date, voting.end_date);
+  }
+
+  getVoting(id: number) {
+    return this.http.get(`${environment.api_url}voting/?id=${id}`);
+  }
 }
