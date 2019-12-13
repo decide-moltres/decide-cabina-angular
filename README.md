@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/decide-moltres/decide-cabina-angular.svg?branch=master)](https://travis-ci.org/decide-moltres/decide-cabina-angular) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a7b1f807c7714f6ab5f7b1e78b0e19db)](https://www.codacy.com/manual/decide-moltres-cabina/decide-cabina-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=decide-moltres/decide-cabina-angular&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a7b1f807c7714f6ab5f7b1e78b0e19db)](https://www.codacy.com/manual/decide-moltres-cabina/decide-cabina-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=decide-moltres/decide-cabina-angular&amp;utm_campaign=Badge_Coverage)
+
 # DecideCabinaAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
