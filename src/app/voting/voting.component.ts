@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { VotingService } from '../services/voting.service';
 import { Voting } from '../models/voting.model';
 import { Question } from '../models/question.model';
+import { Option } from '../models/option.model';
 
 @Component({
   selector: 'app-voting',
