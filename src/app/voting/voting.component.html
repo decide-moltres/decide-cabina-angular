@@ -1,3 +1,5 @@
-<div *ngIf="voting" >
-    <a>{{voting.id}}</a>
+<div *ngIf="voting">
+    <h1>{{voting.name}}</h1>
+    <h2>{{voting.question.desc}}</h2>
+    <app-voting-option *ngFor="let o of voting.question.options" [option]="o"></app-voting-option>
 </div>
