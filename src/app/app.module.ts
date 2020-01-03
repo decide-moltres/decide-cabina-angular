@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VotingItemComponent } from './votings/voting-item/voting-item.component';
 import { VotingOptionComponent } from './voting/voting-option/voting-option.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthGuard } from './services/auth-guard.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
