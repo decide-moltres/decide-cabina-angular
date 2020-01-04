@@ -1,2 +1,13 @@
-<h1>Votings</h1>
-<app-voting-item *ngFor="let v of votings" [voting]="v"></app-voting-item>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <div class="block">
+                <h1 class="side-title">Votings</h1>
+                <div class="mb-3">
+                    <span class="h4 mb-3">Select one of the following voting options:</span>
+                </div>
+                <app-voting-item *ngFor="let v of votings" [voting]="v"></app-voting-item>
+            </div>
+        </div>
+    </div>
+</div>

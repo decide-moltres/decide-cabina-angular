@@ -1,9 +1,11 @@
-<div class="list-group">
-    <a [routerLink]="[voting.id]" class="list-group-item list-group-item list-group-item-action flex-column align-items-start" >
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{voting.name}}</h5>
-            <small>{{voting.startDate}}</small>
-        </div>
-        <p class="mb-1">{{voting.desc}}.</p>
-    </a>
-</div>
+<ul class="list-unstyled">
+    <li class="element list-group-item list-group-item-info">
+        <a class="text-dark list-group-item-action" [routerLink]="[voting.id]">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{voting.name}}</h5>
+                <small>{{voting.startDate}}</small>
+            </div>
+            <p class="mb-1">{{voting.desc}}.</p>
+        </a>
+    </li>
+</ul>
