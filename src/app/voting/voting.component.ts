@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VotingService } from '../services/voting.service';
 import { Voting } from '../models/voting.model';
 import { Question } from '../models/question.model';
@@ -18,7 +18,9 @@ export class VotingComponent implements OnInit {
   submitted: boolean;
   datos: string;
 
-  constructor(private votingService: VotingService, private authService: AuthenticationService, private route: ActivatedRoute) { }
+ 
+  constructor(private router: Router, private votingService: VotingService,
+              private authService: AuthenticationService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params.id;
@@ -36,6 +38,7 @@ export class VotingComponent implements OnInit {
     }
     event.preventDefault();
     this.submitted = true;
+    this.loading = true;
     console.log('ENVIO');
     const v = this.decideEncrypt(datos);
     const tokenid = this.authService.getToken();
@@ -50,11 +53,14 @@ export class VotingComponent implements OnInit {
       };
       const e = this.votingService.postData(data).subscribe((ser) => {
         console.log(ser);
+        this.router.navigate(['']);
       }, (error) => {
         console.log(error);
+        this.loading = false;
       });
     }, (error) => {
       console.log(error);
+      this.loading = false;
     });
   }
 
