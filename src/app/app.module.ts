@@ -10,7 +10,6 @@ import { VotingsComponent } from './votings/votings.component';
 import { VotingComponent } from './voting/voting.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VotingItemComponent } from './votings/voting-item/voting-item.component';
-import { VotingOptionComponent } from './voting/voting-option/voting-option.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { FormsModule } from '@angular/forms';
 
@@ -22,8 +21,7 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     VotingsComponent,
     VotingComponent,
-    VotingItemComponent,
-    VotingOptionComponent
+    VotingItemComponent
   ],
   imports: [
     BrowserModule,
