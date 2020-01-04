@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VotingItemComponent } from './votings/voting-item/voting-item.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { FormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     VotingsComponent,
     VotingComponent,
-    VotingItemComponent
+    VotingItemComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
