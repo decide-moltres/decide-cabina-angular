@@ -10,6 +10,8 @@ import { VotingsComponent } from './votings/votings.component';
 import { VotingComponent } from './voting/voting.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VotingItemComponent } from './votings/voting-item/voting-item.component';
+import { AuthGuard } from './services/auth-guard.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,10 @@ import { VotingItemComponent } from './votings/voting-item/voting-item.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

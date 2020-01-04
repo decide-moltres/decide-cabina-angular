@@ -1,3 +1,30 @@
-<div *ngIf="voting" >
-    <a>{{voting.id}}</a>
-</div>
+<form>
+  <div *ngIf="voting">
+    <h1>{{voting.name}}</h1>
+    <h2>{{voting.question.desc}}</h2>
+    <div class="container">
+      <div class="list-group">
+        <a *ngFor="let o of voting.question.options"
+          class="list-group-item list-group-item  flex-column align-items-start">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id={{o.numb}} [(ngModel)]="datos" name="datos"
+              value={{o.numb}}>
+
+            <label class="form-check-label" for=datos>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 align="center">{{o.numb}}. {{o.option}}</h5>
+              </div>
+            </label>
+          </div>
+        </a>
+
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary" (click)="onSubmit(datos,$event)">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Vote
+      </button>
+    </div>
+  </div>
+</form>

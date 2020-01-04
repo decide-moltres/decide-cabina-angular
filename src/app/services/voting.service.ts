@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Voting } from '../models/voting.model';
 import { Option } from '../models/option.model';
@@ -24,7 +24,7 @@ export class VotingService {
         options.push(new Option(o.number, o.option));
       });
       const question = new Question(v.question.desc, options);
-      res.push(new Voting(v.id, v.name, v.desc, question, v.start_date, v.end_date));
+      res.push(new Voting(v.id, v.name, v.desc, question, v.start_date, v.end_date, v.pub_key));
     });
     return res;
   }
@@ -34,10 +34,17 @@ export class VotingService {
       options.push(new Option(o.number, o.option));
     });
     const question = new Question(voting.question.desc, options);
-    return new Voting(voting.id, voting.name, voting.desc, question, voting.start_date, voting.end_date);
+    console.log(voting);
+    return new Voting(voting.id, voting.name, voting.desc, question, voting.start_date, voting.end_date, voting.pub_key);
   }
 
   getVoting(id: number) {
     return this.http.get(`${environment.api_url}voting/?id=${id}`);
+  }
+
+  postData(data: { vote: { a: any; b: any; }; voting: number; voter: number; token: string; }) {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json').set('Authorization', 'Token ' + data.token);
+    return this.http.post(`${environment.api_url}store/`, data, { headers });
   }
 }

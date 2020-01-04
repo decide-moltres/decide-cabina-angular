@@ -1,6 +1,6 @@
 dist: trusty
 sudo: required
-languaje: node_js
+language: node_js
 node_js:
 - '12'
 branches:
