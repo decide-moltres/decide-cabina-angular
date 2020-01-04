@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   isLogged: boolean;
+  isShown = false;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
       this.authService.removeToken();
       this.authService.changeLoggedStatus(false);
       this.router.navigate(['']);
+      this.isShown = false;
     }, error => {
       console.log(error);
     });
