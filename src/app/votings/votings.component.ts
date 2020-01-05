@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VotingService } from '../services/voting.service';
 import { Voting } from '../models/voting.model';
 import { TouchSequence } from 'selenium-webdriver';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-votings',
@@ -12,16 +13,19 @@ export class VotingsComponent implements OnInit {
 
   votings: Voting[] = [];
 
-  constructor(private votingService: VotingService) { }
+  constructor(private votingService: VotingService, private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.votingService.getVotings().subscribe((res) => {
-      this.votings = this.votingService.parseVotings(res as any);
-      console.log(this.votings);
-    }, error => {
-      console.log(error);
+    const tokenid = this.authService.getToken();
+    this.authService.getUser(tokenid).subscribe((res) => {
+      const id = (res as any).id;
+      this.votingService.getVotingsByUserId(id).subscribe((res2) => {
+        this.votings = this.votingService.parseVotings(res2 as any);
+        console.log(this.votings);
+      }, error => {
+        console.log(error);
+      });
     });
-
   }
 
 }

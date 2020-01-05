@@ -18,7 +18,6 @@ export class VotingComponent implements OnInit {
   submitted: boolean;
   datos: string;
 
- 
   constructor(private router: Router, private votingService: VotingService,
               private authService: AuthenticationService, private route: ActivatedRoute) { }
 

@@ -12,8 +12,8 @@ export class VotingService {
 
   constructor(private http: HttpClient) { }
 
-  getVotings() {
-    return this.http.get(`${environment.api_url}voting/`);
+  getVotingsByUserId(id: number) {
+    return this.http.get(`${environment.api_url}voting/user/?id=${id}`);
   }
 
   parseVotings(votings: any) {
