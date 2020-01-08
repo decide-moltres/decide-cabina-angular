@@ -14,6 +14,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     VotingsComponent,
     VotingComponent,
     VotingItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
