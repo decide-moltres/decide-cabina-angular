@@ -19,7 +19,7 @@ export class VotingComponent implements OnInit {
   datos: string;
 
   constructor(private router: Router, private votingService: VotingService,
-              private authService: AuthenticationService, private route: ActivatedRoute) { }
+    private authService: AuthenticationService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params.id;
@@ -35,10 +35,10 @@ export class VotingComponent implements OnInit {
       console.log('Selecciona una opción');
       return;
     }
+
     event.preventDefault();
     this.submitted = true;
     this.loading = true;
-    console.log('ENVIO');
     const v = this.decideEncrypt(datos);
     const tokenid = this.authService.getToken();
     this.authService.getUser(tokenid).subscribe((res) => {
@@ -51,7 +51,40 @@ export class VotingComponent implements OnInit {
         token: tokenid
       };
       const e = this.votingService.postData(data).subscribe((ser) => {
-        console.log(ser);
+        this.router.navigate(['']);
+      }, (error) => {
+        console.log(error);
+        this.loading = false;
+      });
+    }, (error) => {
+      console.log(error);
+      this.loading = false;
+    });
+  }
+
+  onSubmitMultiple(event: Event) {
+    event.preventDefault();
+    const checkedOptions = this.voting.question.options.filter(op => op.selected === true);
+    const numSelected = checkedOptions.length;
+    if (numSelected > 2 || numSelected <= 0) {
+      return;
+    }
+
+    this.submitted = true;
+    this.loading = true;
+    const checkedIds = checkedOptions.map(co => co.numb).join(',');
+    const v = this.decideEncrypt(checkedIds);
+    const tokenid = this.authService.getToken();
+    this.authService.getUser(tokenid).subscribe((res) => {
+      const id = (res as any).id;
+
+      const data = {
+        vote: { a: v.alpha.toString(), b: v.beta.toString() },
+        voting: this.voting.id,
+        voter: id,
+        token: tokenid
+      };
+      const e = this.votingService.postData(data).subscribe((ser) => {
         this.router.navigate(['']);
       }, (error) => {
         console.log(error);

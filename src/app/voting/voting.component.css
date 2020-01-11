@@ -4,9 +4,11 @@
 }
 
 
-.form-group input[type="radio"] + .btn-group > label span:first-child {
+.form-group input[type="radio"] + .btn-group > label span:first-child,
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
 	display: none;
 }
+
 
 .form-group input[type="radio"]:checked + .btn-group > label span:first-child,
 .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child{
@@ -15,7 +17,7 @@
 
 .form-group input[type="radio"]:checked + .btn-group > label span:first-child + span,
 .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child + span{
-	display: none;  
+	display: none;
 }
 
 .form-group input[type="checkbox"] + .btn-group > label span[class*="fa-"],

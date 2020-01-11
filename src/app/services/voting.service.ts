@@ -21,7 +21,7 @@ export class VotingService {
     votings.forEach(v => {
       const options: Option[] = [];
       v.question.options.forEach(o => {
-        options.push(new Option(o.number, o.option));
+        options.push(new Option(o.number, o.option, false));
       });
       const question = new Question(v.question.desc, options);
       res.push(new Voting(v.id, v.name, v.desc, question, v.start_date, v.end_date, v.pub_key, this.votingTipe(v.tipe)));
@@ -44,7 +44,7 @@ export class VotingService {
   parseVoting(voting: any) {
     const options: Option[] = [];
     voting.question.options.forEach(o => {
-      options.push(new Option(o.number, o.option));
+      options.push(new Option(o.number, o.option, false));
     });
     const question = new Question(voting.question.desc, options);
     return new Voting(voting.id, voting.name, voting.desc, question, voting.start_date,
