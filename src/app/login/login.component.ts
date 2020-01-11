@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   submitted: boolean;
   loading: boolean;
+  googleUrl = `${environment.api_url}authentication/oauth/login/google-oauth2?next=http://localhost:4200/`;
+  facebookUrl = `${environment.api_url}authentication/oauth/login/facebook?next=http://localhost:4200/`;
+  githubUrl = `${environment.api_url}authentication/oauth/login/github?next=http://localhost:4200/`;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 

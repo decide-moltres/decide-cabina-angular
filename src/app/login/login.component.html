@@ -1,42 +1,43 @@
 <div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-sm-9 col-md-8 col-lg-7 col-xl-6">
-            <div class="card card-signin my-5 ">
-                <div class="card-body ">
-                    <h1 class="card-title text-center">Login</h1>
-                    <form class="form-signin">
-                        <div class="form-group">
-                            <label for="inputUsername">Username</label>
-                            <input #username id="inputUsername" class="form-control" placeholder="Username" required
-                                autofocus>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword">Password</label>
-                            <input #password type="password" id="inputPassword" class="form-control"
-                                placeholder="Password" required>
-                        </div>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit"
-                            (click)="onSubmit(username.value, password.value, $event)">
-                            <span class="spinner-border spinner-border-sm mr-1" *ngIf="loading"></span>
-                            Sign in
-                        </button>
-                        <hr class="my-4">
-                        <div class="d-xl-flex d-lg-flex d-md-flex justify-content-xl-around justify-content-lg-around justify-content-md-around mb-xl-4 mb-lg-4 mb-md-4">
-                            <a class="btn btn-social btn-sm btn-facebook col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-1">
-                                <span class="fa fa-facebook"></span> Sign in with Facebook
-                            </a>
-                            <a class="btn btn-social btn-sm btn-google col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-1">
-                                <span class="fa fa-google"></span> Sign in with Google
-                            </a>
-                        </div>
-                        <div class="d-xl-flex d-lg-flex d-md-flex justify-content-xl-around justify-content-lg-around justify-content-md-around">
-                            <a class="btn btn-social btn-sm btn-github col-sm-12 col-md-5 col-lg-5 col-xl-5">
-                                <span class="fa fa-github"></span> Sign in with GitHub
-                            </a>
-                        </div>
-                    </form>
-                </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-9 col-md-8 col-lg-7 col-xl-6">
+      <div class="card card-signin my-5 ">
+        <div class="card-body ">
+          <h1 class="card-title text-center">Login</h1>
+          <form class="form-signin">
+            <div class="form-group">
+              <label for="inputUsername">Username</label>
+              <input #username id="inputUsername" class="form-control" placeholder="Username" required autofocus>
             </div>
+            <div class="form-group">
+              <label for="inputPassword">Password</label>
+              <input #password type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit"
+              (click)="onSubmit(username.value, password.value, $event)">
+              <span class="spinner-border spinner-border-sm mr-1" *ngIf="loading"></span>
+              Sign in
+            </button>
+            <hr class="my-4">
+            <div
+              class="d-xl-flex d-lg-flex d-md-flex justify-content-xl-around justify-content-lg-around justify-content-md-around mb-xl-4 mb-lg-4 mb-md-4">
+              <a class="btn btn-social btn-sm btn-facebook col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-1"
+                href={{facebookUrl}}>
+                <span class="fa fa-facebook"></span> Sign in with Facebook
+              </a>
+              <a class="btn btn-social btn-sm btn-google col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-1" href={{googleUrl}}>
+                <span class="fa fa-google"></span> Sign in with Google
+              </a>
+            </div>
+            <div
+              class="d-xl-flex d-lg-flex d-md-flex justify-content-xl-around justify-content-lg-around justify-content-md-around">
+              <a class="btn btn-social btn-sm btn-github col-sm-12 col-md-5 col-lg-5 col-xl-5" href={{githubUrl}}>
+                <span class="fa fa-github"></span> Sign in with GitHub
+              </a>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>
