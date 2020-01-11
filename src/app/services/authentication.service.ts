@@ -33,9 +33,11 @@ export class AuthenticationService {
   getToken() {
     const cookies = document.cookie.split('; ');
     let token = '';
+    console.log(cookies);
+    console.log(document.cookie);
     cookies.forEach((c) => {
       const cs = c.split('=');
-      if (cs[0] === 'decide' && cs[1]) {
+      if (cs[0] === 'sessionid' && cs[1]) {
         token = cs[1];
       }
     });
@@ -43,11 +45,11 @@ export class AuthenticationService {
   }
 
   setToken(token: string) {
-    document.cookie = 'decide=' + token + ';';
+    document.cookie = 'sessionid=' + token + ';';
   }
 
   removeToken() {
-    document.cookie = 'decide=;';
+    document.cookie = 'sessionid=;';
   }
 
   changeLoggedStatus(newStatus: boolean) {
