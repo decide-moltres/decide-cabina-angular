@@ -13,6 +13,14 @@
           <small>{{voting.tipe}}</small>
         </div>
       </div>
+      <div class="d-flex w-100 justify-content-between">
+        <div class="block" *ngIf="voting.politicalParty">
+          <small>Political party: {{voting.politicalParty.name}}</small>
+        </div>
+        <div class="block" *ngIf="voting.province !=='' ">
+          <small>Province: {{voting.province}}</small>
+        </div>
+      </div>
     </a>
   </li>
 </ul>

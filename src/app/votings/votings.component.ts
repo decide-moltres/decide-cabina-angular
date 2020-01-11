@@ -20,8 +20,7 @@ export class VotingsComponent implements OnInit {
     this.authService.getUser(tokenid).subscribe((res) => {
       const id = (res as any).id;
       this.votingService.getVotingsByUserId(id).subscribe((res2) => {
-        this.votings = this.votingService.parseVotings(res2 as any);
-        console.log(this.votings);
+        this.votings = this.votingService.parseVotings(res2 as any).filter(v => v.startDate !== null);
       }, error => {
         console.log(error);
       });
