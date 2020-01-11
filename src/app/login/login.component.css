@@ -15,6 +15,15 @@
 }
 
 
-.btn-google, .btn-facebook, .btn-github {
+.btn-google, .btn-facebook, .btn-github, .btn-spotify {
     color: white;
+}
+
+.btn-spotify{
+    background-color: #1DB954;
+}
+
+.btn-spotify:hover {
+    background-color: #1d9949;
+    border-color: rgba(0,0,0,0.2);
 }

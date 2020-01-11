@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   googleUrl = `${environment.api_url}authentication/oauth/login/google-oauth2?next=http://localhost:4200/`;
   facebookUrl = `${environment.api_url}authentication/oauth/login/facebook?next=http://localhost:4200/`;
   githubUrl = `${environment.api_url}authentication/oauth/login/github?next=http://localhost:4200/`;
+  redditUrl = `${environment.api_url}authentication/oauth/login/reddit?next=http://localhost:4200/`;
+  spotifyUrl = `${environment.api_url}authentication/oauth/login/spotify?next=http://localhost:4200/`;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
