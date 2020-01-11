@@ -8,5 +8,6 @@ export class Voting {
     public question: Question,
     public startDate: Date,
     public endDate: Date,
-    public pubKey: []) { }
+    public pubKey: [],
+    public tipe: string) { }
 }
