@@ -6,11 +6,10 @@
         <div class="mb-3 text-center">
           <span class="h4 mb-3">{{voting.question.desc}}</span>
         </div>
-        <form class="form-group" *ngIf="voting.tipe !== 'Senate'">
+        <form *ngIf="voting.tipe !== 'Senate'">
           <div class="col-6 border border-secondary py-3 element list-group-item-info w-100 mx-auto"
             *ngFor="let o of voting.question.options">
-            <input class="form-check-input" type="radio" id={{o.numb}} [(ngModel)]="datos" name="option"
-              value={{o.numb}}>
+            <input class="form-check-input" type="radio" name="option" [(ngModel)]="datos" value={{o.numb}} id={{o.numb}}>
             <div class="btn-group">
               <label for="{{o.numb}}" class="form-check-label">
                 <span class="fa fa-check-circle-o fa-lg"></span>
@@ -29,8 +28,14 @@
         <form *ngIf="voting.tipe === 'Senate'">
           <div class="col-6 border border-secondary py-3 element list-group-item-info w-100 mx-auto"
             *ngFor="let o of voting.question.options">
-            <input class="form-check-input" type="checkbox" name={{o.option}} value={{o.numb}} [(ngModel)]="o.selected">
-            {{o.option}}
+            <input class="form-check-input" type="checkbox" name="{{o.option}}" [(ngModel)]="o.selected" value={{o.numb}} id={{o.numb}}>
+            <div class="btn-group">
+              <label for="{{o.numb}}" class="form-check-label">
+                <span class="fa fa-check-circle-o fa-lg"></span>
+                <span class="fa fa-circle-o fa-lg"></span>
+                <span class="h6 content">{{o.numb}}. {{o.option}}</span>
+              </label>
+            </div>
           </div>
           <div class="col-6 mx-auto">
             <button class="btn btn-primary mt-3 w-100" (click)="onSubmitMultiple($event)">

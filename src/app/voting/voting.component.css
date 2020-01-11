@@ -1,35 +1,35 @@
-.form-group input[type="radio"],
-.form-group input[type="checkbox"]{
+input[type="radio"],
+input[type="checkbox"]{
 	display: none;
 }
 
 
-.form-group input[type="radio"] + .btn-group > label span:first-child,
-.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+input[type="radio"] + .btn-group > label span:first-child,
+input[type="checkbox"] + .btn-group > label span:first-child {
 	display: none;
 }
 
 
-.form-group input[type="radio"]:checked + .btn-group > label span:first-child,
-.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child{
+input[type="radio"]:checked + .btn-group > label span:first-child,
+input[type="checkbox"]:checked + .btn-group > label span:first-child{
 	display: inline-block;
 }
 
-.form-group input[type="radio"]:checked + .btn-group > label span:first-child + span,
-.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child + span{
+input[type="radio"]:checked + .btn-group > label span:first-child + span,
+input[type="checkbox"]:checked + .btn-group > label span:first-child + span{
 	display: none;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span[class*="fa-"],
-.form-group input[type="radio"] + .btn-group > label span[class*="fa-"]{
+input[type="checkbox"] + .btn-group > label span[class*="fa-"],
+input[type="radio"] + .btn-group > label span[class*="fa-"]{
 	width: 15px;
 	float: left;
 	margin: 4px 0 2px -2px;
 	color: #333;
 }
 
-.form-group input[type="checkbox"] + .btn-group > label span.content,
-.form-group input[type="radio"] + .btn-group > label span.content{
+input[type="checkbox"] + .btn-group > label span.content,
+input[type="radio"] + .btn-group > label span.content{
 	margin-left: 10px;
 	color: #333;
 }
