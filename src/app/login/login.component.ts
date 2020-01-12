@@ -11,11 +11,11 @@ import { environment } from '../../environments/environment';
 export class LoginComponent implements OnInit {
   submitted: boolean;
   loading: boolean;
-  googleUrl = `${environment.api_url}authentication/oauth/login/google-oauth2?next=http://localhost:4200/`;
-  facebookUrl = `${environment.api_url}authentication/oauth/login/facebook?next=http://localhost:4200/`;
-  githubUrl = `${environment.api_url}authentication/oauth/login/github?next=http://localhost:4200/`;
-  redditUrl = `${environment.api_url}authentication/oauth/login/reddit?next=http://localhost:4200/`;
-  spotifyUrl = `${environment.api_url}authentication/oauth/login/spotify?next=http://localhost:4200/`;
+  googleUrl = `${environment.apiUrl}authentication/oauth/login/google-oauth2?next=${environment.appUrl}`;
+  facebookUrl = `${environment.apiUrl}authentication/oauth/login/facebook?next=${environment.appUrl}`;
+  githubUrl = `${environment.apiUrl}authentication/oauth/login/github?next=${environment.appUrl}`;
+  redditUrl = `${environment.apiUrl}authentication/oauth/login/reddit?next=${environment.appUrl}`;
+  spotifyUrl = `${environment.apiUrl}authentication/oauth/login/spotify?next=${environment.appUrl}`;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 

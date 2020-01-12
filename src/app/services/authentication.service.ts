@@ -14,7 +14,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     if (username !== '' && password !== '') {
-      return this.http.post(`${environment.api_url}authentication/login/`, {
+      return this.http.post(`${environment.apiUrl}authentication/login/`, {
         username,
         password,
       });
@@ -22,12 +22,12 @@ export class AuthenticationService {
   }
 
   logout() {
-    return this.http.post(`${environment.api_url}authentication/logout/`, { token: this.getToken() });
+    return this.http.post(`${environment.apiUrl}authentication/logout/`, { token: this.getToken() });
   }
 
   getUser(token: string) {
     const data = { token };
-    return this.http.post(`${environment.api_url}authentication/getuser/`, data);
+    return this.http.post(`${environment.apiUrl}authentication/getuser/`, data);
   }
 
   getToken() {

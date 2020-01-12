@@ -14,7 +14,7 @@ export class VotingService {
   constructor(private http: HttpClient) { }
 
   getVotingsByUserId(id: number) {
-    return this.http.get(`${environment.api_url}voting/user/?id=${id}`);
+    return this.http.get(`${environment.apiUrl}voting/user/?id=${id}`);
   }
 
   parseVotings(votings: any) {
@@ -62,7 +62,7 @@ export class VotingService {
     let party: PoliticalParty;
 
     if (voting.political_party !== undefined && voting.political_party !== '') {
-      party = new PoliticalParty({...voting.political_party});
+      party = new PoliticalParty({ ...voting.political_party });
     } else {
       party = new PoliticalParty();
     }
@@ -76,12 +76,12 @@ export class VotingService {
   }
 
   getVoting(id: number) {
-    return this.http.get(`${environment.api_url}voting/?id=${id}`);
+    return this.http.get(`${environment.apiUrl}voting/?id=${id}`);
   }
 
   postData(data: { vote: { a: any; b: any; }; voting: number; voter: number; token: string; }) {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json').set('Authorization', 'Token ' + data.token);
-    return this.http.post(`${environment.api_url}store/`, data, { headers });
+    return this.http.post(`${environment.apiUrl}store/`, data, { headers });
   }
 }

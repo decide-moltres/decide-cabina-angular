@@ -60,7 +60,7 @@ describe('VotingService', () => {
       expect(error).toEqual('asd');
     });
 
-    const req = httpMock.expectOne(`${environment.api_url}voting/?id=${id}`);
+    const req = httpMock.expectOne(`${environment.apiUrl}voting/?id=${id}`);
     expect(req.request.method).toBe('GET');
     req.flush('asd');
   });
@@ -73,7 +73,7 @@ describe('VotingService', () => {
       expect(error).toEqual('asd');
     });
 
-    const req = httpMock.expectOne(`${environment.api_url}voting/user/?id=${userId}`);
+    const req = httpMock.expectOne(`${environment.apiUrl}voting/user/?id=${userId}`);
     expect(req.request.method).toBe('GET');
     req.flush('asd');
   });
