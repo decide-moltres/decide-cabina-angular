@@ -12,7 +12,6 @@ describe('Voting module', () => {
   and show atleast one option and the button`, () => {
     page.navigateTo();
     browser.driver.manage().window().setSize(1680, 1027);
-
     element(by.css('nav>div>ul:nth-of-type(1)>li>a')).click();
 
     element(by.css('app-voting-item:nth-of-type(1)>ul>li>a>div:nth-of-type(1)')).click();
