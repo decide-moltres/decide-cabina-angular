@@ -31,5 +31,14 @@ describe('VotingsComponent', () => {
   });
 
 
+  it('should have', () => {
+    const navbarBrand = element.querySelector('.side-title');
+    expect(navbarBrand.textContent).toContain('Votings');
+  });
+
+  it('should have', () => {
+    const navbarBrand = element.querySelector('.h4');
+    expect(navbarBrand.textContent).toContain('Select one of the following voting options:');
+  });
 
 });
