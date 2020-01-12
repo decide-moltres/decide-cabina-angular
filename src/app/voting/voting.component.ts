@@ -19,7 +19,7 @@ export class VotingComponent implements OnInit {
   datos: string;
 
   constructor(private router: Router, private votingService: VotingService,
-    private authService: AuthenticationService, private route: ActivatedRoute) { }
+              private authService: AuthenticationService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params.id;

@@ -26,6 +26,9 @@
           </div>
         </form>
         <form *ngIf="voting.tipe === 'Senate'">
+          <div class="text-center mb-2">
+            <span>You must select between 1 and 2 options</span>
+          </div>
           <div class="col-6 border border-secondary py-3 element list-group-item-info w-100 mx-auto"
             *ngFor="let o of voting.question.options">
             <input class="form-check-input" type="checkbox" name="{{o.option}}" [(ngModel)]="o.selected" value={{o.numb}} id={{o.numb}}>
