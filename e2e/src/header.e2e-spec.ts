@@ -1,7 +1,7 @@
 import { HeaderPage } from './header.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Header module', () => {
   let page: HeaderPage;
 
   beforeEach(() => {
