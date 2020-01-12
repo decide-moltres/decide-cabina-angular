@@ -1,7 +1,7 @@
 import { LoginPage } from './login.po';
 import { browser, logging, element, by } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Login module', () => {
   let page: LoginPage;
 
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe('workspace-project App', () => {
     });
     element(by.css('form>button')).click();
 
-    expect(element(by.css('app-header .navbar-nav')).getText()).toEqual('Votings');
+    expect(element(by.css('app-header .navbar-nav:nth-of-type(1)')).getText()).toEqual('Votings');
   });
 
   afterEach(async () => {
