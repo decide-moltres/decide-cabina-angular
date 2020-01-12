@@ -1,16 +1,21 @@
-import { AppPage } from './app.po';
+import { HeaderPage } from './header.po';
 import { browser, logging } from 'protractor';
 
 describe('workspace-project App', () => {
-  let page: AppPage;
+  let page: HeaderPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new HeaderPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display title message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('decide-cabina-angular app is running!');
+    expect(page.getTitleText()).toEqual('Decide Moltres Cabina');
+  });
+
+  it('should display login if not logged in', () => {
+    page.navigateTo();
+    expect(page.getLoginText()).toEqual('Login');
   });
 
   afterEach(async () => {
@@ -21,3 +26,5 @@ describe('workspace-project App', () => {
     } as logging.Entry));
   });
 });
+
+
