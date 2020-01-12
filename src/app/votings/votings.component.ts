@@ -15,7 +15,7 @@ export class VotingsComponent implements OnInit {
 
   constructor(private votingService: VotingService, private authService: AuthenticationService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const tokenid = this.authService.getToken();
     this.authService.getUser(tokenid).subscribe((res) => {
       const id = (res as any).id;

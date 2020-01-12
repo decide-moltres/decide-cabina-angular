@@ -21,7 +21,7 @@ export class VotingComponent implements OnInit {
   constructor(private router: Router, private votingService: VotingService,
               private authService: AuthenticationService, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = +this.route.snapshot.params.id;
     this.votingService.getVoting(id).subscribe((res) => {
       this.voting = this.votingService.parseVoting(res[0] as any);
@@ -30,7 +30,7 @@ export class VotingComponent implements OnInit {
     });
   }
 
-  onSubmit(datos: string, event: Event) {
+  onSubmit(datos: string, event: Event): void {
     if (datos === undefined) {
       console.log('Selecciona una opción');
       return;
@@ -62,7 +62,7 @@ export class VotingComponent implements OnInit {
     });
   }
 
-  onSubmitMultiple(event: Event) {
+  onSubmitMultiple(event: Event): void {
     event.preventDefault();
     const checkedOptions = this.voting.question.options.filter(op => op.selected === true);
     const numSelected = checkedOptions.length;

@@ -5,6 +5,7 @@ import { Voting } from '../models/voting.model';
 import { Option } from '../models/option.model';
 import { Question } from '../models/question.model';
 import { PoliticalParty } from '../models/politicalParty.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class VotingService {
 
   constructor(private http: HttpClient) { }
 
-  getVotingsByUserId(id: number) {
+  getVotingsByUserId(id: number): Observable<object> {
     return this.http.get(`${environment.apiUrl}voting/user/?id=${id}`);
   }
 
-  parseVotings(votings: any) {
+  parseVotings(votings: any): Voting[] {
     const res: Voting[] = [];
     votings.forEach(v => {
       const options: Option[] = [];
@@ -31,7 +32,7 @@ export class VotingService {
     return res;
   }
 
-  votingTipe(t: string) {
+  votingTipe(t: string): string {
     if (t === 'S') {
       return 'Senate';
     } else if (t === 'P') {
@@ -45,7 +46,7 @@ export class VotingService {
     }
   }
 
-  votingProvince(p: string) {
+  votingProvince(p: string): string {
     if (p === 'S') {
       return 'Sevillistán';
     } else if (p === 'H') {
@@ -57,7 +58,7 @@ export class VotingService {
     }
   }
 
-  parseVoting(voting: any) {
+  parseVoting(voting: any): Voting {
     const options: Option[] = [];
     let party: PoliticalParty;
 
@@ -75,11 +76,11 @@ export class VotingService {
       voting.end_date, voting.pub_key, this.votingTipe(voting.tipe), this.votingProvince(voting.province), voting.political_party);
   }
 
-  getVoting(id: number) {
+  getVoting(id: number): Observable<object> {
     return this.http.get(`${environment.apiUrl}voting/?id=${id}`);
   }
 
-  postData(data: { vote: { a: any; b: any; }; voting: number; voter: number; token: string; }) {
+  postData(data: { vote: { a: any; b: any; }; voting: number; voter: number; token: string; }): Observable<object> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json').set('Authorization', 'Token ' + data.token);
     return this.http.post(`${environment.apiUrl}store/`, data, { headers });

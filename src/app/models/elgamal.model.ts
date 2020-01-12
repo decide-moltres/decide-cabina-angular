@@ -1,5 +1,5 @@
 const BigInt = require('jsbn').BigInteger;
-import * as sjcl from "sjcl";
+import * as sjcl from 'sjcl';
 
 export class ElGamal {
   constructor() { }

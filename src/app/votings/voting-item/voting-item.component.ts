@@ -11,7 +11,7 @@ export class VotingItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     (this.voting.startDate as any) = new Date(this.voting.startDate).toLocaleString();
   }
 

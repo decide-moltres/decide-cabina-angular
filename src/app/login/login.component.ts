@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  onSubmit(username: string, password: string, event: Event) {
+  onSubmit(username: string, password: string, event: Event): void {
     event.preventDefault();
 
     this.submitted = true;

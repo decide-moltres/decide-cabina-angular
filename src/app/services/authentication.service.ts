@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string) {
+  login(username: string, password: string): Observable<object> {
     if (username !== '' && password !== '') {
       return this.http.post(`${environment.apiUrl}authentication/login/`, {
         username,
@@ -21,16 +22,16 @@ export class AuthenticationService {
     }
   }
 
-  logout() {
+  logout(): Observable<object> {
     return this.http.post(`${environment.apiUrl}authentication/logout/`, { token: this.getToken() });
   }
 
-  getUser(token: string) {
+  getUser(token: string): Observable<object> {
     const data = { token };
     return this.http.post(`${environment.apiUrl}authentication/getuser/`, data);
   }
 
-  getToken() {
+  getToken(): string {
     const cookies = document.cookie.split('; ');
     let token = '';
     console.log(cookies);
@@ -44,15 +45,15 @@ export class AuthenticationService {
     return token;
   }
 
-  setToken(token: string) {
+  setToken(token: string): void {
     document.cookie = 'sessionid=' + token + ';';
   }
 
-  removeToken() {
+  removeToken(): void {
     document.cookie = 'sessionid=;';
   }
 
-  changeLoggedStatus(newStatus: boolean) {
+  changeLoggedStatus(newStatus: boolean): void {
     this.isLogged = newStatus;
     this.statusChanged.emit(this.isLogged);
   }

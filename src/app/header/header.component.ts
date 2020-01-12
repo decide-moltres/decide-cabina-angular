@@ -14,13 +14,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authService.statusChanged.subscribe(res => {
       this.isLogged = res;
     });
   }
 
-  onLogout(event: Event) {
+  onLogout(event: Event): void {
     event.preventDefault();
     this.authService.logout().subscribe(res => {
       this.authService.removeToken();
